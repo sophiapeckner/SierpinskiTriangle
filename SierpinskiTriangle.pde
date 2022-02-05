@@ -26,11 +26,13 @@ void draw() {
       lava.get(i).move(lava.get(i).myAngle);
       lava.get(i).show();
     }
+    sierpinski(27, 495, 350);
   }
 }
 
 void sierpinski(int x, int y, int len) {
   stroke(251, 86, 7);
+  fill(255);
   if (len > 20) {
     sierpinski(x, y, len/2);
     sierpinski((x + len/2), y, len/2);
@@ -69,6 +71,8 @@ class Smoke {
       else if (Math.random() > 0.5)
         x -= (int) (Math.random() * 2);
     }
+    else
+      flag = false;
   }
   
   public void show() {
@@ -90,7 +94,7 @@ class Lava {
   }
   
   public void move(double angle) {
-    if (myY >= -1 || myY <= 150) {
+    if (myY >= -1) {
       myX += Math.cos(angle) * mySpeed;
       myY += Math.sin(angle) * mySpeed;
     }
