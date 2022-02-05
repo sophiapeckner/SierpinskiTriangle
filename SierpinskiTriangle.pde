@@ -90,7 +90,7 @@ class Lava {
   }
   
   public void move(double angle) {
-    if (myY >= -1) {
+    if (myY >= -1 || myY <= 150) {
       myX += Math.cos(angle) * mySpeed;
       myY += Math.sin(angle) * mySpeed;
     }
